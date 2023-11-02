@@ -1,6 +1,6 @@
 # mith-directus
 
-Populate a directus instance from MITH AirTable YAML exports.
+Populate a [directus](https://directus.io/) instance from MITH Airtable YAML exports.
 
 ## Installation
 
@@ -8,7 +8,7 @@ Populate a directus instance from MITH AirTable YAML exports.
 
 Make sure to **change the credentials in `.env`**
 
-Once the instance is setup (locally, or somehwere else), you can install and run the Node script to popoulate the data. 
+Once the instance is setup (locally, or somewhere else), you can install and run the Node script to populate the data. 
 
 With node >18:
 
