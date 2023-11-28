@@ -1,0 +1,25 @@
+# fly.toml app configuration file generated for mith-directus on 2023-11-03T11:30:05-04:00
+#
+# See https://fly.io/docs/reference/configuration/ for information about how to use this file.
+#
+
+app = "mith-directus"
+primary_region = "iad"
+
+[env]
+  DB_CLIENT = 'sqlite3'
+  WEBSOCKETS_ENABLED = 'true'
+
+[mounts]
+  source = "database"
+  destination = "/data"
+
+[build]
+
+[http_service]
+  internal_port = 8055
+  force_https = true
+  auto_stop_machines = true
+  auto_start_machines = true
+  min_machines_running = 1
+  processes = ["app"]

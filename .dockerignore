@@ -2,6 +2,7 @@
 database
 uploads
 dist
+.env
 
 # Logs
 logs
@@ -52,5 +53,3 @@ web_modules/
 
 # TypeScript cache
 *.tsbuildinfo
-
-.env
