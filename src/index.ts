@@ -188,8 +188,8 @@ const extractYmlFields: (yml: {[key: string]: unknown}[]) => [ColField[], Relati
  */
 const populate = async (dir: string, opts: ProgramOptions) => {
   const directusURL = opts.directus;
-  const username = opts.user ?? process.env.DIRECTUS_USERNAME;
-  const password = opts.password ?? process.env.DIRECTUS_PASSWORD;
+  const username = opts.user ?? process.env.ADMIN_EMAIL;
+  const password = opts.password ?? process.env.ADMIN_PASSWORD;
   if (!username || !password) {
     console.error("directus user name or password not provided");
     process.exit(1);
@@ -328,10 +328,12 @@ const populate = async (dir: string, opts: ProgramOptions) => {
         }
         
         // Adjust image item:
-        if (imageUploadResponse.id) {
-          item[imageField] = imageUploadResponse.id;
-        } else {
-          console.warn(`Uploaded ${filename}, but could not assign to image field of item ${item.id}.`);
+        if (imageUploadResponse) {
+          if (imageUploadResponse.id) {
+            item[imageField] = imageUploadResponse.id;
+          } else {
+            console.warn(`Uploaded ${filename}, but could not assign to image field of item ${item.id}.`);
+          }
         }
       }
 
@@ -378,11 +380,11 @@ const populate = async (dir: string, opts: ProgramOptions) => {
         const relatedColl = relationshipTargets[id];
 
         if (!relatedColl) {
-          console.info(`Could not find referenced id ${id} from field ${field} in ${coll}`);
+          // console.info(`Could not find referenced id ${id} from field ${field} in ${coll}`);
           continue;
         }
 
-        console.info(`Processing ${id} from field ${field} in ${coll}`);
+        // console.info(`Processing ${id} from field ${field} in ${coll}`);
 
         // Create collection if needed
         const jointColl = `${coll}_${relatedColl}`;

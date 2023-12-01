@@ -10,8 +10,8 @@ services:
     environment:
       KEY: 'qaqC-wpRfo2qpvHGZ4GdFQ'
       SECRET: 'xtl-fXhZJTuCT0Pynq-fHw'
-      ADMIN_EMAIL: ${DIRECTUS_USERNAME}
-      ADMIN_PASSWORD: ${DIRECTUS_PASSWORD}
+      ADMIN_EMAIL: ${ADMIN_EMAIL}
+      ADMIN_PASSWORD: ${ADMIN_PASSWORD}
       DB_CLIENT: 'sqlite3'
       DB_FILENAME: '/directus/database/data.db'
       WEBSOCKETS_ENABLED: "true"
