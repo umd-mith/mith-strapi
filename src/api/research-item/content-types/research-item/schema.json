@@ -1,0 +1,328 @@
+{
+  "kind": "collectionType",
+  "collectionName": "research-items",
+  "info": {
+    "singularName": "research-item",
+    "pluralName": "research-items",
+    "displayName": "research-items"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "active": {
+      "type": "boolean"
+    },
+    "airtable_createdTime": {
+      "type": "datetime"
+    },
+    "airtable_id": {
+      "type": "string"
+    },
+    "description": {
+      "type": "text"
+    },
+    "end": {
+      "type": "datetime"
+    },
+    "excerpt": {
+      "type": "text"
+    },
+    "image": {
+      "type": "media",
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ],
+      "multiple": false
+    },
+    "month_end": {
+      "type": "integer"
+    },
+    "month_start": {
+      "type": "integer"
+    },
+    "slug": {
+      "type": "string"
+    },
+    "start": {
+      "type": "datetime"
+    },
+    "title": {
+      "type": "string"
+    },
+    "twitter_account": {
+      "type": "string"
+    },
+    "year_end": {
+      "type": "integer"
+    },
+    "year_start": {
+      "type": "integer"
+    },
+    "subtitle": {
+      "type": "string"
+    },
+    "fellow_department": {
+      "type": "customField",
+      "options": [
+        "Theatre",
+        "History/Jewish Studies",
+        "English",
+        "American Studies",
+        "History",
+        "Jewish Studies",
+        "Comparative Literature",
+        "Russian",
+        "Women's Studies",
+        "Music",
+        "History/Chinese",
+        "East Asian Studies",
+        "Architecture",
+        "Networked Associate",
+        "Government and Politics",
+        "German"
+      ],
+      "customField": "plugin::multi-select.multi-select"
+    },
+    "fellow_program": {
+      "type": "customField",
+      "options": [
+        "Resident",
+        "External Fellow (Emory University)",
+        "Networked Associate",
+        "Winnemore Digital Humanities Dissertation Program",
+        "Clara and Robert Vambery Distinguished Graduate Fellowship",
+        "Networked Associate Fellow"
+      ],
+      "customField": "plugin::multi-select.multi-select"
+    },
+    "fellow_type": {
+      "type": "enumeration",
+      "enum": [
+        "Faculty",
+        "External",
+        "Student"
+      ]
+    },
+    "time_start": {
+      "type": "string"
+    },
+    "twitter_hashtag": {
+      "type": "string"
+    },
+    "grant_types": {
+      "type": "string"
+    },
+    "time_end": {
+      "type": "string"
+    },
+    "target_of_event_linked_research_item": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::event.event",
+      "mappedBy": "linked_research_item"
+    },
+    "target_of_identity_linked_research_as_external": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::identity.identity",
+      "mappedBy": "linked_research_as_external"
+    },
+    "target_of_identity_linked_research_as_internal": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::identity.identity",
+      "mappedBy": "linked_research_as_internal"
+    },
+    "target_of_identity_linked_research_as_director": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::identity.identity",
+      "mappedBy": "linked_research_as_director"
+    },
+    "target_of_link_linked_research_items": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::link.link",
+      "mappedBy": "linked_research_items"
+    },
+    "target_of_partnersponsor_linked_research_items_as_partner": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::partner-sponsor.partner-sponsor",
+      "mappedBy": "linked_research_items_as_partner"
+    },
+    "target_of_partnersponsor_linked_research_items_as_sponsor": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::partner-sponsor.partner-sponsor",
+      "mappedBy": "linked_research_items_as_sponsor"
+    },
+    "target_of_person_linked_research_as_participant": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::person.person",
+      "mappedBy": "linked_research_as_participant"
+    },
+    "target_of_person_linked_research_as_director": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::person.person",
+      "mappedBy": "linked_research_as_director"
+    },
+    "target_of_person_linked_featured_research": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::person.person",
+      "mappedBy": "linked_featured_research"
+    },
+    "target_of_post_linked_research": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::post.post",
+      "mappedBy": "linked_research"
+    },
+    "disciplines": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::taxonomy-value.taxonomy-value",
+      "inversedBy": "target_of_researchitem_disciplines"
+    },
+    "linked_director_affiliations": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::identity.identity",
+      "inversedBy": "target_of_researchitem_linked_director_affiliations"
+    },
+    "linked_directors": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::person.person",
+      "inversedBy": "target_of_researchitem_linked_directors"
+    },
+    "linked_events": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::event.event",
+      "inversedBy": "target_of_researchitem_linked_events"
+    },
+    "linked_internal_participant_affiliations": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::identity.identity",
+      "inversedBy": "target_of_researchitem_linked_internal_participant_affiliations"
+    },
+    "linked_links": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::link.link",
+      "inversedBy": "target_of_researchitem_linked_links"
+    },
+    "linked_participants": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::person.person",
+      "inversedBy": "target_of_researchitem_linked_participants"
+    },
+    "linked_partners": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::partner-sponsor.partner-sponsor",
+      "inversedBy": "target_of_researchitem_linked_partners"
+    },
+    "linked_posts": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::post.post",
+      "inversedBy": "target_of_researchitem_linked_posts"
+    },
+    "methods": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::taxonomy-value.taxonomy-value",
+      "inversedBy": "target_of_researchitem_methods"
+    },
+    "research_types": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::type.type",
+      "inversedBy": "target_of_researchitem_research_types"
+    },
+    "tags": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::tag.tag",
+      "inversedBy": "target_of_researchitem_tags"
+    },
+    "topics": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::topic.topic",
+      "inversedBy": "target_of_researchitem_topics"
+    },
+    "linked_external_participant_affiliations": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::identity.identity",
+      "inversedBy": "target_of_researchitem_linked_external_participant_affiliations"
+    },
+    "linked_people_featured_research": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::person.person",
+      "inversedBy": "target_of_researchitem_linked_people_featured_research"
+    },
+    "linked_sponsors": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::partner-sponsor.partner-sponsor",
+      "inversedBy": "target_of_researchitem_linked_sponsors"
+    },
+    "target_of_researchitem_related_research": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::research-item.research-item",
+      "mappedBy": "related_research"
+    },
+    "related_research": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::research-item.research-item",
+      "inversedBy": "target_of_researchitem_related_research"
+    },
+    "target_of_tag_linked_research": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::tag.tag",
+      "mappedBy": "linked_research"
+    },
+    "target_of_taxonomyvalue_linked_research_methods": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::taxonomy-value.taxonomy-value",
+      "mappedBy": "linked_research_methods"
+    },
+    "target_of_taxonomyvalue_linked_research_disciplines": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::taxonomy-value.taxonomy-value",
+      "mappedBy": "linked_research_disciplines"
+    },
+    "target_of_topic_linked_research": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::topic.topic",
+      "mappedBy": "linked_research"
+    },
+    "target_of_type_linked_research": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::type.type",
+      "mappedBy": "linked_research"
+    }
+  }
+}

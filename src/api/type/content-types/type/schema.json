@@ -1,0 +1,59 @@
+{
+  "kind": "collectionType",
+  "collectionName": "types",
+  "info": {
+    "singularName": "type",
+    "pluralName": "types",
+    "displayName": "types"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "airtable_createdTime": {
+      "type": "datetime"
+    },
+    "airtable_id": {
+      "type": "string"
+    },
+    "parent_or_child": {
+      "type": "enumeration",
+      "enum": [
+        "Parent",
+        "Child",
+        "SubChild"
+      ]
+    },
+    "parent_type_grouping": {
+      "type": "string"
+    },
+    "research_type": {
+      "type": "string"
+    },
+    "target_of_event_event_types": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::event.event",
+      "mappedBy": "event_types"
+    },
+    "target_of_researchitem_research_types": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::research-item.research-item",
+      "mappedBy": "research_types"
+    },
+    "linked_research": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::research-item.research-item",
+      "inversedBy": "target_of_type_linked_research"
+    },
+    "linked_events": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::event.event",
+      "inversedBy": "target_of_type_linked_events"
+    }
+  }
+}

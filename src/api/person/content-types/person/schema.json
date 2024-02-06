@@ -1,0 +1,223 @@
+{
+  "kind": "collectionType",
+  "collectionName": "people",
+  "info": {
+    "singularName": "person",
+    "pluralName": "people",
+    "displayName": "people"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "airtable_createdTime": {
+      "type": "datetime"
+    },
+    "airtable_id": {
+      "type": "string"
+    },
+    "bio": {
+      "type": "text"
+    },
+    "created": {
+      "type": "datetime"
+    },
+    "first": {
+      "type": "string"
+    },
+    "group_type": {
+      "type": "json"
+    },
+    "headshot": {
+      "type": "media",
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ],
+      "multiple": false
+    },
+    "identity_as_speaker": {
+      "type": "string"
+    },
+    "last": {
+      "type": "string"
+    },
+    "linked_events": {
+      "type": "string"
+    },
+    "modified": {
+      "type": "datetime"
+    },
+    "name": {
+      "type": "string"
+    },
+    "new_id": {
+      "type": "integer"
+    },
+    "record_id": {
+      "type": "string"
+    },
+    "slug": {
+      "type": "string"
+    },
+    "slug_formula": {
+      "type": "string"
+    },
+    "bio_external": {
+      "type": "string"
+    },
+    "department": {
+      "type": "string"
+    },
+    "institution": {
+      "type": "string"
+    },
+    "phone": {
+      "type": "string"
+    },
+    "wordpress_id": {
+      "type": "integer"
+    },
+    "identity_as_past": {
+      "type": "string"
+    },
+    "twitter": {
+      "type": "string"
+    },
+    "website": {
+      "type": "string"
+    },
+    "identity_as_collaborator": {
+      "type": "string"
+    },
+    "email": {
+      "type": "string"
+    },
+    "wordpress_nicename": {
+      "type": "string"
+    },
+    "status": {
+      "type": "json"
+    },
+    "title": {
+      "type": "json"
+    },
+    "sort": {
+      "type": "integer"
+    },
+    "research_interests": {
+      "type": "text"
+    },
+    "target_of_event_speakers": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::event.event",
+      "mappedBy": "speakers"
+    },
+    "target_of_event_linked_participants": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::event.event",
+      "mappedBy": "linked_participants"
+    },
+    "target_of_group_linked_people": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::group.group",
+      "mappedBy": "linked_people"
+    },
+    "target_of_identity_linked_person": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::identity.identity",
+      "mappedBy": "linked_person"
+    },
+    "target_of_identity_linked_people_as_current": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::identity.identity",
+      "mappedBy": "linked_people_as_current"
+    },
+    "events_as_speaker": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::event.event",
+      "inversedBy": "target_of_person_events_as_speaker"
+    },
+    "linked_identities": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::identity.identity",
+      "inversedBy": "target_of_person_linked_identities"
+    },
+    "people_groups": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::group.group",
+      "inversedBy": "target_of_person_people_groups"
+    },
+    "linked_research_as_participant": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::research-item.research-item",
+      "inversedBy": "target_of_person_linked_research_as_participant"
+    },
+    "linked_research_as_director": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::research-item.research-item",
+      "inversedBy": "target_of_person_linked_research_as_director"
+    },
+    "events_as_participant": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::event.event",
+      "inversedBy": "target_of_person_events_as_participant"
+    },
+    "identities_as_current": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::identity.identity",
+      "inversedBy": "target_of_person_identities_as_current"
+    },
+    "linked_featured_research": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::research-item.research-item",
+      "inversedBy": "target_of_person_linked_featured_research"
+    },
+    "topics": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::topic.topic",
+      "inversedBy": "target_of_person_topics"
+    },
+    "target_of_researchitem_linked_directors": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::research-item.research-item",
+      "mappedBy": "linked_directors"
+    },
+    "target_of_researchitem_linked_participants": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::research-item.research-item",
+      "mappedBy": "linked_participants"
+    },
+    "target_of_researchitem_linked_people_featured_research": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::research-item.research-item",
+      "mappedBy": "linked_people_featured_research"
+    },
+    "target_of_topic_linked_people": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::topic.topic",
+      "mappedBy": "linked_people"
+    }
+  }
+}

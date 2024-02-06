@@ -1,0 +1,133 @@
+{
+  "kind": "collectionType",
+  "collectionName": "taxonomy-values",
+  "info": {
+    "singularName": "taxonomy-value",
+    "pluralName": "taxonomy-values",
+    "displayName": "taxonomy-values"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "airtable_createdTime": {
+      "type": "datetime"
+    },
+    "airtable_id": {
+      "type": "string"
+    },
+    "method_or_discipline": {
+      "type": "enumeration",
+      "enum": [
+        "Method",
+        "Discipline"
+      ]
+    },
+    "name": {
+      "type": "string"
+    },
+    "target_of_event_methods_from_topics": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::event.event",
+      "mappedBy": "methods_from_topics"
+    },
+    "target_of_event_disciplines": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::event.event",
+      "mappedBy": "disciplines"
+    },
+    "target_of_event_methods": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::event.event",
+      "mappedBy": "methods"
+    },
+    "target_of_post_disciplines": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::post.post",
+      "mappedBy": "disciplines"
+    },
+    "target_of_post_methods": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::post.post",
+      "mappedBy": "methods"
+    },
+    "target_of_researchitem_disciplines": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::research-item.research-item",
+      "mappedBy": "disciplines"
+    },
+    "target_of_researchitem_methods": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::research-item.research-item",
+      "mappedBy": "methods"
+    },
+    "Methods_Mapped_to_MITH_Topics_OLD": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::topic.topic",
+      "inversedBy": "target_of_taxonomyvalue_Methods_Mapped_to_MITH_Topics_OLD"
+    },
+    "linked_research_methods": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::research-item.research-item",
+      "inversedBy": "target_of_taxonomyvalue_linked_research_methods"
+    },
+    "Disciplines_Mapped_to_MITH_Topics_OLD": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::topic.topic",
+      "inversedBy": "target_of_taxonomyvalue_Disciplines_Mapped_to_MITH_Topics_OLD"
+    },
+    "linked_research_disciplines": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::research-item.research-item",
+      "inversedBy": "target_of_taxonomyvalue_linked_research_disciplines"
+    },
+    "linked_events_methods": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::event.event",
+      "inversedBy": "target_of_taxonomyvalue_linked_events_methods"
+    },
+    "linked_posts_methods": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::post.post",
+      "inversedBy": "target_of_taxonomyvalue_linked_posts_methods"
+    },
+    "linked_events_discplines": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::event.event",
+      "inversedBy": "target_of_taxonomyvalue_linked_events_discplines"
+    },
+    "linked_posts_disciplines": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::post.post",
+      "inversedBy": "target_of_taxonomyvalue_linked_posts_disciplines"
+    },
+    "target_of_topic_disciplines": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::topic.topic",
+      "mappedBy": "disciplines"
+    },
+    "target_of_topic_methods": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::topic.topic",
+      "mappedBy": "methods"
+    }
+  }
+}

@@ -1,0 +1,97 @@
+{
+  "kind": "collectionType",
+  "collectionName": "topics",
+  "info": {
+    "singularName": "topic",
+    "pluralName": "topics",
+    "displayName": "topics"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "airtable_createdTime": {
+      "type": "datetime"
+    },
+    "airtable_id": {
+      "type": "string"
+    },
+    "parent_or_child": {
+      "type": "enumeration",
+      "enum": [
+        "Parent",
+        "Child"
+      ]
+    },
+    "parent_topic_grouping": {
+      "type": "string"
+    },
+    "slug": {
+      "type": "string"
+    },
+    "topic": {
+      "type": "string"
+    },
+    "target_of_event_topics": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::event.event",
+      "mappedBy": "topics"
+    },
+    "target_of_person_topics": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::person.person",
+      "mappedBy": "topics"
+    },
+    "target_of_researchitem_topics": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::research-item.research-item",
+      "mappedBy": "topics"
+    },
+    "target_of_taxonomyvalue_Methods_Mapped_to_MITH_Topics_OLD": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::taxonomy-value.taxonomy-value",
+      "mappedBy": "Methods_Mapped_to_MITH_Topics_OLD"
+    },
+    "target_of_taxonomyvalue_Disciplines_Mapped_to_MITH_Topics_OLD": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::taxonomy-value.taxonomy-value",
+      "mappedBy": "Disciplines_Mapped_to_MITH_Topics_OLD"
+    },
+    "disciplines": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::taxonomy-value.taxonomy-value",
+      "inversedBy": "target_of_topic_disciplines"
+    },
+    "linked_research": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::research-item.research-item",
+      "inversedBy": "target_of_topic_linked_research"
+    },
+    "methods": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::taxonomy-value.taxonomy-value",
+      "inversedBy": "target_of_topic_methods"
+    },
+    "linked_events": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::event.event",
+      "inversedBy": "target_of_topic_linked_events"
+    },
+    "linked_people": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::person.person",
+      "inversedBy": "target_of_topic_linked_people"
+    }
+  }
+}

@@ -1,32 +1,35 @@
 {
-  "name": "mith-directus",
-  "version": "1.0.0",
-  "description": "Populate a directus instance from MITH AirTable YAML exports",
-  "main": "dist/index.js",
-  "types": "dist/index.d.ts",
-  "files": [
-    "/dist"
-  ],
+  "name": "mith-strapi",
+  "private": true,
+  "version": "0.1.0",
+  "description": "A Strapi application",
   "scripts": {
-    "build": "npx tsc",
-    "populate": "ts-node src/index.ts"
-  },
-  "devDependencies": {
-    "@types/node": "^20.8.7",
-    "@typescript-eslint/eslint-plugin": "^6.8.0",
-    "@typescript-eslint/parser": "^6.8.0",
-    "dotenv": "^16.3.1",
-    "eslint": "^8.51.0",
-    "ts-node": "^10.9.1",
-    "typescript": "^5.2.2",
-    "uuid": "^9.0.1",
-    "yaml": "^2.3.3"
+    "develop": "strapi develop",
+    "start": "strapi start",
+    "build": "strapi build",
+    "strapi": "strapi"
   },
   "dependencies": {
-    "@directus/sdk": "^12.1.0",
-    "commander": "^11.1.0"
+    "@strapi/plugin-cloud": "4.19.1",
+    "@strapi/plugin-i18n": "4.19.1",
+    "@strapi/plugin-users-permissions": "4.19.1",
+    "@strapi/strapi": "4.19.1",
+    "better-sqlite3": "8.6.0",
+    "react": "^18.0.0",
+    "react-dom": "^18.0.0",
+    "react-router-dom": "5.3.4",
+    "strapi-plugin-multi-select": "^1.2.3",
+    "styled-components": "5.3.3"
   },
-  "keywords": [],
-  "author": "Raff Viglianti, University of Maryland",
+  "author": {
+    "name": "A Strapi developer"
+  },
+  "strapi": {
+    "uuid": "42f540c6-9cd6-4262-a272-67b0701818c2"
+  },
+  "engines": {
+    "node": ">=18.0.0 <=20.x.x",
+    "npm": ">=6.0.0"
+  },
   "license": "MIT"
 }

@@ -1,0 +1,33 @@
+{
+  "name": "mith-strapi-import",
+  "version": "1.0.0",
+  "description": "Create or populate a Strapi instance from MITH AirTable YAML exports",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "files": [
+    "/dist"
+  ],
+  "scripts": {
+    "build": "npx tsc",
+    "create": "ts-node src/index.ts",
+    "populate": "ts-node src/index.ts -p"
+  },
+  "devDependencies": {
+    "@types/node": "^20.8.7",
+    "@typescript-eslint/eslint-plugin": "^6.8.0",
+    "@typescript-eslint/parser": "^6.8.0",
+    "dotenv": "^16.3.1",
+    "eslint": "^8.51.0",
+    "ts-node": "^10.9.1",
+    "typescript": "^5.2.2",
+    "uuid": "^9.0.1",
+    "yaml": "^2.3.3"
+  },
+  "dependencies": {
+    "commander": "^11.1.0",
+    "strapi-sdk-js": "^2.3.3"
+  },
+  "keywords": [],
+  "author": "Raff Viglianti, University of Maryland",
+  "license": "MIT"
+}

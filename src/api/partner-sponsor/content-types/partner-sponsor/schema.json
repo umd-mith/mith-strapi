@@ -1,0 +1,127 @@
+{
+  "kind": "collectionType",
+  "collectionName": "partners-sponsors",
+  "info": {
+    "singularName": "partner-sponsor",
+    "pluralName": "partners-sponsors",
+    "displayName": "partners-sponsors"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "airtable_createdTime": {
+      "type": "datetime"
+    },
+    "airtable_id": {
+      "type": "string"
+    },
+    "group": {
+      "type": "customField",
+      "options": [
+        "partner",
+        "sponsor"
+      ],
+      "customField": "plugin::multi-select.multi-select"
+    },
+    "institution_type": {
+      "type": "customField",
+      "options": [
+        "university",
+        "library",
+        "laboratory",
+        "center",
+        "archive",
+        "organization",
+        "college",
+        "project",
+        "school",
+        "institute",
+        "museum",
+        "association",
+        "department",
+        "office",
+        "program",
+        "other",
+        "committee",
+        "foundation"
+      ],
+      "customField": "plugin::multi-select.multi-select"
+    },
+    "name": {
+      "type": "string"
+    },
+    "slug": {
+      "type": "string"
+    },
+    "type": {
+      "type": "enumeration",
+      "enum": [
+        "Internal",
+        "External"
+      ]
+    },
+    "website": {
+      "type": "string"
+    },
+    "logo": {
+      "type": "media",
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ],
+      "multiple": false
+    },
+    "target_of_event_sponsors": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::event.event",
+      "mappedBy": "sponsors"
+    },
+    "target_of_event_partners": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::event.event",
+      "mappedBy": "partners"
+    },
+    "linked_events_as_partner": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::event.event",
+      "inversedBy": "target_of_partnersponsor_linked_events_as_partner"
+    },
+    "linked_research_items_as_partner": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::research-item.research-item",
+      "inversedBy": "target_of_partnersponsor_linked_research_items_as_partner"
+    },
+    "linked_research_items_as_sponsor": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::research-item.research-item",
+      "inversedBy": "target_of_partnersponsor_linked_research_items_as_sponsor"
+    },
+    "linked_events_as_sponsor": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::event.event",
+      "inversedBy": "target_of_partnersponsor_linked_events_as_sponsor"
+    },
+    "target_of_researchitem_linked_partners": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::research-item.research-item",
+      "mappedBy": "linked_partners"
+    },
+    "target_of_researchitem_linked_sponsors": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::research-item.research-item",
+      "mappedBy": "linked_sponsors"
+    }
+  }
+}

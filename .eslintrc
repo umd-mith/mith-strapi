@@ -1,39 +1,27 @@
 {
+  "parser": "babel-eslint",
+  "extends": "eslint:recommended",
   "env": {
-    "browser": true,
-    "es2021": true
+    "commonjs": true,
+    "es6": true,
+    "node": true,
+    "browser": false
   },
-  "extends": [
-    "eslint:recommended",
-    "plugin:@typescript-eslint/recommended"
-  ],
-  "overrides": [
-  ],
-  "parser": "@typescript-eslint/parser",
   "parserOptions": {
-    "ecmaVersion": "latest",
+    "ecmaFeatures": {
+      "experimentalObjectRestSpread": true,
+      "jsx": false
+    },
     "sourceType": "module"
   },
-  "plugins": [
-    "@typescript-eslint"
-  ],
+  "globals": {
+    "strapi": true
+  },
   "rules": {
-    "indent": [
-      "error",
-      2
-    ],
-    "linebreak-style": [
-      "error",
-      "unix"
-    ],
-    "quotes": [
-      "error",
-      "double"
-    ],
-    "semi": [
-      "error",
-      "always"
-    ],
-    "no-console": ["warn", { "allow": ["warn", "error", "info"] }]
+    "indent": ["error", 2, { "SwitchCase": 1 }],
+    "linebreak-style": ["error", "unix"],
+    "no-console": 0,
+    "quotes": ["error", "single"],
+    "semi": ["error", "always"]
   }
 }

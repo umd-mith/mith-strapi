@@ -1,0 +1,69 @@
+{
+  "kind": "collectionType",
+  "collectionName": "groups",
+  "info": {
+    "singularName": "group",
+    "pluralName": "groups",
+    "displayName": "groups"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "airtable_createdTime": {
+      "type": "datetime"
+    },
+    "airtable_id": {
+      "type": "string"
+    },
+    "group_name": {
+      "type": "string"
+    },
+    "slug": {
+      "type": "string"
+    },
+    "sort": {
+      "type": "integer"
+    },
+    "type": {
+      "type": "enumeration",
+      "enum": [
+        "Staff",
+        "Affiliates",
+        "Past",
+        "External"
+      ]
+    },
+    "status": {
+      "type": "enumeration",
+      "enum": [
+        "current"
+      ]
+    },
+    "linked_affiliations": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::identity.identity",
+      "inversedBy": "target_of_group_linked_affiliations"
+    },
+    "linked_people": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::person.person",
+      "inversedBy": "target_of_group_linked_people"
+    },
+    "target_of_identity_group": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::identity.identity",
+      "mappedBy": "group"
+    },
+    "target_of_person_people_groups": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::person.person",
+      "mappedBy": "people_groups"
+    }
+  }
+}

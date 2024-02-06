@@ -1,0 +1,359 @@
+{
+  "kind": "collectionType",
+  "collectionName": "events",
+  "info": {
+    "singularName": "event",
+    "pluralName": "events",
+    "displayName": "events"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "airtable_createdTime": {
+      "type": "datetime"
+    },
+    "airtable_id": {
+      "type": "string"
+    },
+    "description": {
+      "type": "text"
+    },
+    "end_date": {
+      "type": "datetime"
+    },
+    "event_title": {
+      "type": "string"
+    },
+    "event_type": {
+      "type": "customField",
+      "options": [
+        "Digital Dialogue",
+        "Conference",
+        "Other Event",
+        "Workshop",
+        "Symposium",
+        "Training Institute"
+      ],
+      "customField": "plugin::multi-select.multi-select"
+    },
+    "image": {
+      "type": "media",
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ],
+      "multiple": false
+    },
+    "linked_research_item_slug": {
+      "type": "json"
+    },
+    "linked_research_item_title": {
+      "type": "json"
+    },
+    "location": {
+      "type": "string"
+    },
+    "mith_url": {
+      "type": "string"
+    },
+    "slug": {
+      "type": "string"
+    },
+    "start_date": {
+      "type": "datetime"
+    },
+    "year": {
+      "type": "integer"
+    },
+    "season": {
+      "type": "enumeration",
+      "enum": [
+        "Spring",
+        "Fall"
+      ]
+    },
+    "series": {
+      "type": "enumeration",
+      "enum": [
+        "Fall 2005",
+        "Spring 2006",
+        "Fall 2006",
+        "Spring 2007",
+        "Fall 2007",
+        "Spring 2008",
+        "Fall 2008",
+        "Spring 2009",
+        "Fall 2009",
+        "Spring 2010",
+        "Fall 2010",
+        "Spring 2011",
+        "Fall 2011",
+        "Spring 2012",
+        "Fall 2012",
+        "Spring 2013",
+        "Fall 2013",
+        "Spring 2014",
+        "Fall 2014",
+        "Spring 2015",
+        "Fall 2015",
+        "Spring 2016",
+        "Fall 2016",
+        "Spring 2017",
+        "Fall 2017",
+        "Spring 2018",
+        "Fall 2018",
+        "Spring 2019",
+        "Fall 2019",
+        "Spring 2020"
+      ]
+    },
+    "talk_subtitle": {
+      "type": "string"
+    },
+    "talk_title": {
+      "type": "string"
+    },
+    "vimeo_id": {
+      "type": "string"
+    },
+    "vimeo_url": {
+      "type": "string"
+    },
+    "annotations": {
+      "type": "customField",
+      "options": [
+        "Manual",
+        "Tweets"
+      ],
+      "customField": "plugin::multi-select.multi-select"
+    },
+    "storify_url": {
+      "type": "string"
+    },
+    "sutori_recap_url": {
+      "type": "string"
+    },
+    "ohms_xml": {
+      "type": "media",
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ],
+      "multiple": false
+    },
+    "twitter_moment": {
+      "type": "string"
+    },
+    "status": {
+      "type": "enumeration",
+      "enum": [
+        "active",
+        "pending",
+        "canceled",
+        "postponed"
+      ]
+    },
+    "twitter_hashtag": {
+      "type": "string"
+    },
+    "remix_ties_temp": {
+      "type": "enumeration",
+      "enum": [
+        "La'el Francena SMC/DD",
+        "Gimena Rio Riande DD"
+      ]
+    },
+    "excerpt": {
+      "type": "text"
+    },
+    "sutori_embed": {
+      "type": "text"
+    },
+    "twitter_account": {
+      "type": "string"
+    },
+    "livestream_link": {
+      "type": "string"
+    },
+    "event_types": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::type.type",
+      "inversedBy": "target_of_event_event_types"
+    },
+    "linked_links": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::link.link",
+      "inversedBy": "target_of_event_linked_links"
+    },
+    "linked_research_item": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::research-item.research-item",
+      "inversedBy": "target_of_event_linked_research_item"
+    },
+    "tags": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::tag.tag",
+      "inversedBy": "target_of_event_tags"
+    },
+    "linked_posts": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::post.post",
+      "inversedBy": "target_of_event_linked_posts"
+    },
+    "speaker_affiliations": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::identity.identity",
+      "inversedBy": "target_of_event_speaker_affiliations"
+    },
+    "speakers": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::person.person",
+      "inversedBy": "target_of_event_speakers"
+    },
+    "methods_from_topics": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::taxonomy-value.taxonomy-value",
+      "inversedBy": "target_of_event_methods_from_topics"
+    },
+    "topics": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::topic.topic",
+      "inversedBy": "target_of_event_topics"
+    },
+    "disciplines": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::taxonomy-value.taxonomy-value",
+      "inversedBy": "target_of_event_disciplines"
+    },
+    "methods": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::taxonomy-value.taxonomy-value",
+      "inversedBy": "target_of_event_methods"
+    },
+    "linked_participant_affiliations": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::identity.identity",
+      "inversedBy": "target_of_event_linked_participant_affiliations"
+    },
+    "linked_participants": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::person.person",
+      "inversedBy": "target_of_event_linked_participants"
+    },
+    "sponsors": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::partner-sponsor.partner-sponsor",
+      "inversedBy": "target_of_event_sponsors"
+    },
+    "partners": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::partner-sponsor.partner-sponsor",
+      "inversedBy": "target_of_event_partners"
+    },
+    "target_of_identity_linked_events_as_speaker": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::identity.identity",
+      "mappedBy": "linked_events_as_speaker"
+    },
+    "target_of_identity_linked_events_as_participant": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::identity.identity",
+      "mappedBy": "linked_events_as_participant"
+    },
+    "target_of_link_linked_events": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::link.link",
+      "mappedBy": "linked_events"
+    },
+    "target_of_partnersponsor_linked_events_as_partner": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::partner-sponsor.partner-sponsor",
+      "mappedBy": "linked_events_as_partner"
+    },
+    "target_of_partnersponsor_linked_events_as_sponsor": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::partner-sponsor.partner-sponsor",
+      "mappedBy": "linked_events_as_sponsor"
+    },
+    "target_of_person_events_as_speaker": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::person.person",
+      "mappedBy": "events_as_speaker"
+    },
+    "target_of_person_events_as_participant": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::person.person",
+      "mappedBy": "events_as_participant"
+    },
+    "target_of_post_linked_events": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::post.post",
+      "mappedBy": "linked_events"
+    },
+    "target_of_researchitem_linked_events": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::research-item.research-item",
+      "mappedBy": "linked_events"
+    },
+    "target_of_tag_linked_events": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::tag.tag",
+      "mappedBy": "linked_events"
+    },
+    "target_of_taxonomyvalue_linked_events_methods": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::taxonomy-value.taxonomy-value",
+      "mappedBy": "linked_events_methods"
+    },
+    "target_of_taxonomyvalue_linked_events_discplines": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::taxonomy-value.taxonomy-value",
+      "mappedBy": "linked_events_discplines"
+    },
+    "target_of_topic_linked_events": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::topic.topic",
+      "mappedBy": "linked_events"
+    },
+    "target_of_type_linked_events": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::type.type",
+      "mappedBy": "linked_events"
+    }
+  }
+}
