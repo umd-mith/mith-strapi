@@ -53,3 +53,9 @@ web_modules/
 
 # TypeScript cache
 *.tsbuildinfo
+
+.tmp/
+.cache/
+.git/
+build/
+data/

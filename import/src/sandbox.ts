@@ -11,24 +11,17 @@ const strapi = new Strapi({
 
 async function test() {
   // console.log(process.env.ADMIN_EMAIL, process.env.ADMIN_PASSWORD);
-  const data = await strapi.login({ identifier: "apiuser@mith.us", password: "changeme"}).catch((err) => {console.log(err);});
+  const data = await strapi.login({ identifier: "", password: ""}).catch((err) => {console.log(err);});
 
-  // const realTest = {
-  //   "airtable_id":"rec03bbHKDTpK6g5d",
-  //   "airtable_createdTime":"2020-11-12T22:57:51.000Z",
-  //   "description":"Participants and instructors will gather on the campus of the Indiana University-Purdue University Indianapolis in Indianapolis, Indiana for our our 7th year of HILT.\n",
-  //   "end_date":"2019-06-07T04:00:00.000Z",
-  //   "event_title":"HILT 2019",
-  //   "event_type":["Training Institute"],
-  //   "linked_research_item_slug":["humanities-intensive-learning-teaching"],
-  //   "linked_research_item_title":["Humanities Intensive Learning + Teaching"],
-  //   "location":"Indiana University-Purdue University Indianapolis (IUPUI)",
-  //   "mith_url":"https://mith.umd.edu/digital-dialogues/hilt-2019",
-  //   "slug":"hilt-2019",
-  //   "start_date":"2019-06-03T04:00:00.000Z",
-  //   "year":2019,
-  //   "image": 0
-  // };
+  const { user, jwt } = data as StrapiAuthenticationResponse
+
+  const realTest = {
+    "airtable_id":"DELETEME",
+  };
+
+  strapi.axios.defaults.headers.common["Authorization"] = `Bearer ${jwt}`
+  await strapi.findOne("events", 1).catch(err => console.log(err))
+  await strapi.create("events", realTest).catch((err) => {console.log(err);});
 
   // // find image:
   // const media = await strapi.find("upload/files", {
@@ -43,14 +36,17 @@ async function test() {
   //   realTest.image = parseInt((media as unknown as {id: string}[])[0].id);
   // }
 
+  // await strapi.findOne('events', 1).catch((err) => {console.log(err);});
+  
+
   // const newItem = await strapi.create("events", realTest).catch((err) => {console.log(err);});
 
   // const newItemId = (newItem as StrapiResponse<{id: string}>).data.id;
   
   // console.log(newItemId);
-  await strapi.update("events", , {
-    "topics": [56]
-  }).catch((err) => {console.log(err);});
+  // await strapi.update("events", , {
+  //   "topics": [56]
+  // }).catch((err) => {console.log(err);});
   // event 309 { speakers: [ 313, 384 ] }
 
   // console.log(await strapi.setToken((data as StrapiAuthenticationResponse).jwt));

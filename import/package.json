@@ -10,7 +10,8 @@
   "scripts": {
     "build": "npx tsc",
     "create": "ts-node src/index.ts",
-    "populate": "ts-node src/index.ts -p"
+    "populate": "ts-node src/index.ts -p",
+    "test": "ts-node src/sandbox.ts"
   },
   "devDependencies": {
     "@types/node": "^20.8.7",
