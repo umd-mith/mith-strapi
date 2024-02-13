@@ -1,16 +1,16 @@
 # Dockerfile
 FROM node:20
-# Installing libvips-dev for sharp Compatability
+# Installing libvips-dev for sharp Compatibility
 RUN apt-get update && apt-get install libvips-dev -y
-# Set environment to production
-ENV NODE_ENV=production
+# Create the database data directory and set it to its own volume
+RUN mkdir -p /data
+VOLUME /data
 # Copy the configuration files
 WORKDIR /opt/
 COPY ./package.json ./package-lock.json ./
 ENV PATH /opt/node_modules/.bin:$PATH
 # Install dependencies
 RUN npm install
-RUN npm install pg
 # Copy the application files
 WORKDIR /opt/app
 COPY ./ .
