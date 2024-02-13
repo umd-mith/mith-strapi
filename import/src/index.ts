@@ -6,7 +6,7 @@ import * as path from "path";
 import YAML from "yaml";
 import dotenv from "dotenv";
 dotenv.config();
-import Strapi, { StrapiResponse } from "strapi-sdk-js";
+import Strapi, { StrapiAuthenticationResponse, StrapiResponse } from "strapi-sdk-js";
 
 type FieldType = "integer" | "float" | "string" | "datetime" | "uid" | "text" | "relation" | "media" |
   "json" | "boolean" | "enumeration" | "customField"  | "plugin::multi-select.multi-select" | "formula" | "lookup" | "rollup";
@@ -241,11 +241,14 @@ const getStrapi = async () => {
     });
   
     // login to strapi
-    await strapiInstance.login({ identifier: process.env.ADMIN_EMAIL || "", password: process.env.ADMIN_PASSWORD || ""})
+    const data = await strapiInstance.login({ identifier: process.env.ADMIN_EMAIL || "", password: process.env.ADMIN_PASSWORD || ""})
       .catch((err) => {console.log(`could not connect with ${process.env.ADMIN_EMAIL} ${process.env.ADMIN_PASSWORD }`); console.log(err); process.exit(1);});
+    
+    const { jwt } = data as StrapiAuthenticationResponse;
+    strapiInstance.axios.defaults.headers.common["Authorization"] = `Bearer ${jwt}`;
   }
 
-  return strapiInstance;
+  return strapiInstance as Strapi;
 };
 
 const populate = async (dir: string, opts: ProgramOptions) => {
